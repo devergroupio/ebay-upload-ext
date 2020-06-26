@@ -128,7 +128,7 @@ const uploadBase64 = async (base64) => {
  */
 
 const uploadFile = async (file) => {
-  return new Promise(async (resolve) => {
+  return new Promise(async (resolve, reject) => {
     const [url, body] = await _getRequiredParams();
     const r = new FileReader();
     r.onloadend = function (fl) {
