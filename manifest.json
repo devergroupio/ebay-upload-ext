@@ -8,13 +8,20 @@
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
   },
-  "options_page": "src/options.html",
-  "options_ui": {
-    "page": "src/options.html",
-    "chrome_style": true
+  "browser_action": {
+    "default_popup": "src/popup.html"
   },
+  "content_scripts": [
+    {
+      "matches": ["https://*.picupload.ebay.ca/*"],
+      "js": ["./js/content.min.js"],
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": ["js/iframe_inject.min.js"],
   "permissions": [
     "webRequest",
+    "activeTab",
     "webRequestBlocking",
     "clipboardRead",
     "clipboardWrite",
